@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.hero-bg { 
+   background-color: #161616;
+   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+
+   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+
+.aboutus-bg { 
+   background-color: #ffffff;
+   background-image: url("https://www.transparenttextures.com/patterns/graphy.png");
+}

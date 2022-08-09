@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if test %}
+{% for recipe in test %}
+<div id="result-card" class="p-2 bg-neutral-900 rounded-lg border-green-500 border-[1px]">
+    <div id="title-bar" class="text-xl font-inter text-white flex flex-row justify-between">
+            <h1 class="font-bold uppercase max-w-sm">{{ recipe['recipe']['label'] }}</h1>
+        
+        </div>
+
+        <!-- Star Icon  --> 
+
+
+
+    <div id="result-content" class="text-white font-inter text-left list-none">
+
+        <h1 class="text-xl font-bold text-green-500">Ingredients</h1>
+        <hr class="my-2">
+        {% for i in recipe['recipe']['ingredientLines'] %}
+        <li>{{ i }}</li>
+        {% endfor %}
+
+                    
+        <div id="food-image">
+            <img class="rounded-lg"   src="{{ recipe['recipe']['image'] }}" alt="">
+        </div>
+
+        
+    </div>
+
+    <div id="result-footer" class="mt-5">
+        <div id="source" class="text-left text-white">
+            <span class="font-medium">Recipe from <span class="text-green-500 font-bold">{{ recipe['recipe']['source'] }}</span></span>
+        </div>
+
+        <div id="button-group" class="flex flex-row space-x-2 mt-2">
+            <a href="{{ recipe['recipe']['url'] }}" target=”_blank”  class="transition-all hover:animate-pulse bg-green-800 text-green-500 rounded-md py-2 px-2 uppercase font-bold">View Recipe</a>
+            <a class="transition-all bg-neutral-500 text-neutral-800 rounded-md py-2 px-2 uppercase font-bold">Health <i class="fa-solid fa-lock text-neutral-800"></i></a>
+            <a class="transition-all bg-neutral-500 text-neutral-800 rounded-md py-2 px-2 uppercase font-bold">Save <i class="fa-solid fa-lock text-neutral-800"></i></a>
+        </div>
+
+    </div>
+</div>
+{% endfor %}
+{% else %}
+        <!-- No search Results Alert -->
+<a class="p-2 bg-neutral-900 text-white rounded-full border-green-500 border-[1px]">Recipes will show up here</a>
+{% endif %}
+{% endblock %}
+
+
+

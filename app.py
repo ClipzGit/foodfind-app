@@ -13,9 +13,12 @@ def gfg():
         url = f'https://api.edamam.com/search?q={textBox}&app_id=58a5fc66&app_key=94edcba2f758d8d2a5921ec7db528382'
         response = requests.get(url)
         hits = response.json()['hits']
+        more = response.json()['more']
+        print(more)
+        count = len(hits)
 
 
-        return render_template('index.html', test=hits, result=textBox)
+        return render_template('index.html', test=hits, valid=textBox, counter=count, exist=more, result=textBox)
     elif request.method == 'GET': 
         return render_template('index.html')
 

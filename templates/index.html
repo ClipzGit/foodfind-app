@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
+
 {% if test %}
+<div class="text-center text-white text-4xl font-bold font-inter">
+    Search Results: (<span class="text-green-500">{{ counter }}</span>)
+</div>
 {% for recipe in test %}
 <div id="result-card" class="p-2 bg-neutral-900 rounded-lg border-green-500 border-[1px]">
     <div id="title-bar" class="text-xl font-inter text-white flex flex-row justify-between">
             <h1 class="font-bold uppercase max-w-sm">{{ recipe['recipe']['label'] }}</h1>
+            <h1>{{ recipe['recipe']['label'] }}</h1>
         
         </div>
 
@@ -44,7 +49,12 @@
 {% endfor %}
 {% else %}
         <!-- No search Results Alert -->
-<a class="p-2 bg-neutral-900 text-white rounded-full border-green-500 border-[1px]">Recipes will show up here</a>
+<a class="p-2 bg-neutral-900 text-white rounded-full border-green-500 border-[1px]">
+    Recipes will show up here
+    {% if exist == False %}
+	<h1 class="text-red-500 font-bold">We couldn't find your search result for: <span class="text-white">{{ valid }}</span></h1> 
+    {% endif %}
+</a>
 {% endif %}
 {% endblock %}
 

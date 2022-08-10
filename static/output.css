@@ -860,6 +860,14 @@ video {
   border-radius: 1.5rem;
 }
 
+.rounded-tr-lg {
+  border-top-right-radius: 0.5rem;
+}
+
+.rounded-tl-lg {
+  border-top-left-radius: 0.5rem;
+}
+
 .border-2 {
   border-width: 2px;
 }

@@ -5,8 +5,9 @@
 <div class="text-center text-white text-4xl font-bold font-inter">
     Search Results: (<span class="text-green-500">{{ counter }}</span>)
 </div>
+<div id="scrolling" class="overflow-y-auto h-[40rem] space-y-3 rounded-md">
 {% for recipe in test %}
-<div id="result-card" class="p-2 bg-neutral-900 rounded-lg border-green-500 border-[1px]">
+<div id="result-card" class="p-2 bg-neutral-900 mx-2 rounded-lg border-green-500 border-[1px]">
     <div id="title-bar" class="text-xl font-inter text-white flex flex-row justify-between">
             <h1 class="font-bold uppercase max-w-sm">{{ recipe['recipe']['label'] }}</h1>
      
@@ -47,6 +48,7 @@
     </div>
 </div>
 {% endfor %}
+</div>
 {% else %}
         <!-- No search Results Alert -->
 <a class="p-2 bg-neutral-900 text-white rounded-full border-green-500 border-[1px]">

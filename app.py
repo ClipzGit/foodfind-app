@@ -3,6 +3,7 @@ import requests
 
 app = Flask(__name__)
 
+# Loading Home Page & Request for fetching Recipes 
 @app.route('/', methods=['GET', 'POST'])
 def gfg():
     if request.method == "POST": 
@@ -21,6 +22,12 @@ def gfg():
         return render_template('index.html', test=hits, valid=textBox, counter=count, exist=more, result=textBox)
     elif request.method == 'GET': 
         return render_template('index.html')
+
+# Login Screen 
+@app.route('/login', methods=['GET'])
+def load_login(): 
+    if request.method == 'GET': 
+        return render_template('login.html')
 
 @app.route('/ingredients/', methods=['GET'])
 def api_fetch_ingredients():

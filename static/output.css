@@ -743,6 +743,12 @@ video {
   width: 2rem;
 }
 
+.min-w-min {
+  min-width: -webkit-min-content;
+  min-width: -moz-min-content;
+  min-width: min-content;
+}
+
 .max-w-6xl {
   max-width: 72rem;
 }

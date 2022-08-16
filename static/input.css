@@ -30,11 +30,78 @@
   
  /* Handle */
  ::-webkit-scrollbar-thumb {
-   background: rgb(4, 255, 87); 
+   background: rgb(2, 136, 47); 
    border-radius: 10px;
  }
  
  /* Handle on hover */
  ::-webkit-scrollbar-thumb:hover {
-  background: rgb(4, 255, 87); 
+  background: rgb(2, 136, 47); 
  }
+
+ .hamburger { 
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  transition: all 0.25s;
+  position: relative;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom { 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background: #000;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+.hamburger-middle { 
+  transform: translateY(7px);
+}
+
+.hero .hero-section-image {
+  position: absolute;
+  width: 600px;
+  height: auto;
+  top: 20%;
+  left: 50%;
+  z-index: -1;
+  margin-top: -10px;
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  
+}
+
+@keyframes floating {
+  0% { transform: translate(0,  0px); }
+  50%  { transform: translate(0, 15px); }
+  100%   { transform: translate(0, -0px); }   
+}
+
+.hamburger-bottom { 
+  transform: translateY(14px);
+}
+
+.open { 
+  transform: rotate(90deg);
+  transform: translateY(0px);
+}
+
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(6px) translate(6px);
+}
+
+.open .hamburger-middle { 
+  display: none;
+}
+
+.open .hamburger-bottom { 
+  transform: rotate(-45deg) translateY(6px) translate(-6px);
+}

@@ -15,6 +15,7 @@ def gfg():
         hits = response.json()['hits']
         more = response.json()['more']
         print(more)
+        print(hits)
         count = len(hits)
 
 

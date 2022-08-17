@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodFind - Dashboard</title>
+    <link rel="stylesheet" href="../static/output.css">
+    <link rel="shortcut icon" href="../static/images/favicon.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/e711e799c4.js" crossorigin="anonymous"></script><link href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic,500,500italic,700,700italic,900,900italic&subset=latin,latin-ext,cyrillic,cyrillic-ext,greek-ext,greek,vietnamese" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <section id="nav-bar" class="p-10 bg-slate-50 shadow-md">
+        <nav id="nav-container" class="container mx-auto flex justify-between">
+        <div id="logo-wrapper" class="inline-flex">
+            <img src="../static/images/favicon.png" class="h-8" alt="" srcset="">
+            <h1 class="text-neutral-800 font-inter font-bold md:text-xl text-lg">FoodFind</h1>
+            <p class="ml-2 font-inter text-md hidden md:block">| Ultimate Recipe Finder</p>
+        </div>
+    
+        <div id="nav-items" class="hidden md:block space-x-5 font-inter text-neutral-800 font-medium">
+            <a href="#home">Dashboard</a>
+            <a href="#home">Saved Recipes</a>
+            <a href="">Account</a>
+            <a href="#search" class="text-green-600">API <i class="fa-solid fa-code"></i></a>
+            <a href="/logout" class="p-2 bg-green-600 text-white rounded-md text-lg hover:animate-pulse">Logout</a>
+        </div>
+        <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
+            <span class="hamburger-top"></span>
+            <span class="hamburger-middle"></span>
+            <span class="hamburger-bottom"></span>
+          </button>
+        </nav>
+    </section>
+
+
+    <!-- Dashboard Main Content Area -->
+    <section id="main-content" class="p-10">
+        <div id="main-container" class="container mx-auto">
+
+        <div id="widget-container">
+        <div id="widget-row" class="container mx-auto flex md:flex-row flex-col justify-center md:space-x-5">
+
+        <!-- Total Users-->
+        <div id="card" class="bg-slate-50 rounded-lg shadow-lg py-10 px-5 w-[25%]">
+            <div id="card-title" class="font-linter text-xl text-neutral-800 font-medium">
+                <h1><i class="fa-regular fa-user"></i> Total Users </h1>
+                <hr>
+            </div>
+            <div id="card-extras" class="font-linter text-xl text-green-600 font-medium">
+                <h1>53</h1>
+            </div>
+        </div>
+        <!-- Total Saved Recipes -->
+        <div id="card" class="bg-slate-50 rounded-lg shadow-lg py-10 px-5 w-[25%]">
+            <div id="card-title" class="font-linter text-xl text-neutral-800 font-medium">
+                <h1><i class="fa-regular fa-bookmark"></i> Total Saved Recipes </h1>
+                <hr>
+            </div>
+            <div id="card-extras" class="font-linter text-xl text-green-600 font-medium">
+                <h1>53</h1>
+            </div>
+        </div>
+        <!-- API Active -->
+        <div id="card" class="bg-slate-50 rounded-lg shadow-lg py-10 px-5 w-[25%]">
+            <div id="card-title" class="font-linter text-xl text-neutral-800 font-medium">
+                <h1><i class="fa-solid fa-code"></i> API Active </h1>
+                <hr>
+            </div>
+            <div id="card-extras" class="mt-3 font-linter text-xl text-white font-medium">
+                <span class="px-5 py-2 bg-red-400 rounded-full shadow-red-500 shadow-lg">Inactive</span>
+            </div>
+        </div>
+
+        </div>
+        </div>
+
+
+        <!-- Searching Section -->
+        <section id="search" class="mx-5 p-10">
+            <div id="search-container" class="container mx-auto">
+                
+            <div id="srch-title" class="text-4xl font-medium font-inter text-center">
+                <h1 class="text-neutral-800">Get Searching</h1>
+                <p class="text-neutral-800 font-medium text-lg">Start finding some incredible recipes using your ingredients</p>
+            </div>
+        
+            
+            <div id="searching container" class="mt-10">
+                <div class="md:grid grid-cols-2 gap-4 flex flex-col">
+                    <div id="left-side">
+                        <form id="post-ingredients" action="" method="post">
+                         <textarea name="ingredients" id="ingredients" rows="4" class="block transition-all resize-none p-2.5 w-full text-sm text-neutral-800 focus:bg-slate-50 rounded-lg outline-none border-green-600 border-2" placeholder="Enter your ingredients here..." required></textarea>
+                        
+                         
+                         
+                         <div id="button-group" class="flex flex-row space-x-2 mt-2">
+                            <button type="submit" onclick="$('#loading').show();" class="transition-all hover:animate-pulse bg-green-600 text-white rounded-md py-2 uppercase font-bold w-[100%]">Find Recipes</button>
+                        </form>
+
+                            <div role="status" id="loading" class="hidden">
+                                <svg aria-hidden="true" class="mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-green-500" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+                                    <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+                                </svg>
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div id="right-side">
+                        <div id="result-container" class="flex flex-col space-y-3">
+                        
+        
+                            <!-- Result Card -->
+        <!-- Successfull Food Search -->
+        
+        {% block content %}
+                     
+        
+        {% endblock %}
+                    
+                    </div>
+        
+        
+                    </div>
+                </div>
+        
+            </div>
+        </section>
+
+    </div>
+    </section> 
+
+
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodFind - Dashboard</title>
+    <link rel="stylesheet" href="../static/output.css">
+    <link rel="shortcut icon" href="../static/images/favicon.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/e711e799c4.js" crossorigin="anonymous"></script><link href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic,500,500italic,700,700italic,900,900italic&subset=latin,latin-ext,cyrillic,cyrillic-ext,greek-ext,greek,vietnamese" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <section id="nav-bar" class="p-10 bg-slate-50 shadow-md">
+        <nav id="nav-container" class="container mx-auto flex justify-between">
+        <div id="logo-wrapper" class="inline-flex">
+            <img src="../static/images/favicon.png" class="h-8" alt="" srcset="">
+            <h1 class="text-neutral-800 font-inter font-bold md:text-xl text-lg">FoodFind</h1>
+            <p class="ml-2 font-inter text-md hidden md:block">| Ultimate Recipe Finder</p>
+        </div>
+    
+        <div id="nav-items" class="hidden md:block space-x-5 font-inter text-neutral-800 font-medium">
+            <a href="#home">Dashboard</a>
+            <a href="#home">Removed Recipes</a>
+            <a href="">Account</a>
+            <a href="#search" class="text-green-600">API <i class="fa-solid fa-code"></i></a>
+            <a href="/logout" class="p-2 bg-green-600 text-white rounded-md text-lg hover:animate-pulse">Logout</a>
+        </div>
+        <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
+            <span class="hamburger-top"></span>
+            <span class="hamburger-middle"></span>
+            <span class="hamburger-bottom"></span>
+          </button>
+        </nav>
+    </section>
+
+
+    <!-- Dashboard Main Content Area -->
+    <section id="main-content" class="p-10">
+        <div id="main-container" class="container mx-auto">
+
+
+
+        <!-- Searching Section -->
+        <section id="search" class="mx-5 p-10">
+            <div id="search-container" class="container mx-auto">
+                
+            <div id="srch-title" class="text-4xl font-medium font-inter text-center">
+                <h1 class="text-neutral-800">Saved Recipes</h1>
+                <p class="text-neutral-800 font-medium text-lg">View all your Saved recipes</p>
+            </div>
+        
+            
+            <div id="recipe container" class="mt-10">
+
+                    <div id="no-recipes" class="text-center">
+                        <a class="p-2 bg-slate-50 text-neutral-800 font-inter font-medium text-center rounded-full border-green-600 border-[1px] shadow-lg">
+                            You currently have no Saved recipes
+                        </a>
+                    </div>
+
+
+                    <div id="recipe-container" class="">
+                        <div id="recipe-row" class="flex flex-row justify-center my-5 flex-wrap">
+                            <div id="result-card" class="mt-2 p-2 bg-slate-50 mx-2 rounded-lg border-green-500 border-[1px] shadow-xl">
+                                <div id="title-bar" class="text-xl font-inter text-neutral-800 flex flex-row justify-between">
+                                        <h1 class="font-bold uppercase max-w-sm">{{ recipe['recipe']['label'] }}</h1>
+                                 
+                                    
+                                    </div>
+                            
+                                    <!-- Star Icon  --> 
+                            
+                            
+                            
+                                <div id="result-content" class="text-neutral-800 font-inter text-left list-none">
+                            
+                                    <h1 class="text-xl font-bold text-green-500">Ingredients</h1>
+                                    <hr class="my-2">
+                                    {% for i in recipe['recipe']['ingredientLines'] %}
+                                    <li>{{ i }}</li>
+                                    {% endfor %}
+                            
+                                                
+                                    <div id="food-image">
+                                        <img class="rounded-lg"   src="{{ recipe['recipe']['image'] }}" alt="">
+                                    </div>
+                            
+                                    
+                                </div>
+                            
+                                <div id="result-footer" class="mt-5">
+                                    <div id="source" class="text-left text-neutral-800">
+                                        <span class="font-medium">Recipe from <span class="text-green-500 font-bold">{{ recipe['recipe']['source'] }}</span></span>
+                                    </div>
+                            
+                                    <div id="row" class="flex flex-row space-x-2 mt-2">
+                                    <div id="button-group" class="">
+                                        <a href="{{ recipe['recipe']['url'] }}" target=”_blank”  class="transition-all hover:animate-pulse bg-green-600 text-white rounded-md py-2 px-2 uppercase font-bold">View Recipe</a>
+                                        <a class="transition-all bg-red-400 text-white rounded-md py-2 px-2 uppercase font-bold">Remove <i class="fa-solid fa-xmark"></i></a>
+                                    </div>
+                                </div>
+                            
+                                </div>
+                            </div>
+
+
+                            <div id="result-card" class="mt-2 p-2 bg-slate-50 mx-2 rounded-lg border-green-500 border-[1px] shadow-xl">
+                                <div id="title-bar" class="text-xl font-inter text-neutral-800 flex flex-row justify-between">
+                                        <h1 class="font-bold uppercase max-w-sm">{{ recipe['recipe']['label'] }}</h1>
+                                 
+                                    
+                                    </div>
+                            
+                                    <!-- Star Icon  --> 
+                            
+                            
+                            
+                                <div id="result-content" class="text-neutral-800 font-inter text-left list-none">
+                            
+                                    <h1 class="text-xl font-bold text-green-500">Ingredients</h1>
+                                    <hr class="my-2">
+                                    {% for i in recipe['recipe']['ingredientLines'] %}
+                                    <li>{{ i }}</li>
+                                    {% endfor %}
+                            
+                                                
+                                    <div id="food-image">
+                                        <img class="rounded-lg"   src="{{ recipe['recipe']['image'] }}" alt="">
+                                    </div>
+                            
+                                    
+                                </div>
+                            
+                                <div id="result-footer" class="mt-5">
+                                    <div id="source" class="text-left text-neutral-800">
+                                        <span class="font-medium">Recipe from <span class="text-green-500 font-bold">{{ recipe['recipe']['source'] }}</span></span>
+                                    </div>
+                            
+                                    <div id="row" class="flex flex-row space-x-2 mt-2">
+                                    <div id="button-group" class="">
+                                        <a href="{{ recipe['recipe']['url'] }}" target=”_blank”  class="transition-all hover:animate-pulse bg-green-600 text-white rounded-md py-2 px-2 uppercase font-bold">View Recipe</a>
+                                        <a class="transition-all bg-red-400 text-white rounded-md py-2 px-2 uppercase font-bold">Remove <i class="fa-solid fa-lock text-white"></i></a>
+                                    </div>
+                                </div>
+                            
+                                </div>
+                            </div>
+
+
+                            <div id="result-card" class="mt-2 p-2 bg-slate-50 mx-2 rounded-lg border-green-500 border-[1px] shadow-xl">
+                                <div id="title-bar" class="text-xl font-inter text-neutral-800 flex flex-row justify-between">
+                                        <h1 class="font-bold uppercase max-w-sm">{{ recipe['recipe']['label'] }}</h1>
+                                 
+                                    
+                                    </div>
+                            
+                                    <!-- Star Icon  --> 
+                            
+                            
+                            
+                                <div id="result-content" class="text-neutral-800 font-inter text-left list-none">
+                            
+                                    <h1 class="text-xl font-bold text-green-500">Ingredients</h1>
+                                    <hr class="my-2">
+                                    {% for i in recipe['recipe']['ingredientLines'] %}
+                                    <li>{{ i }}</li>
+                                    {% endfor %}
+                            
+                                                
+                                    <div id="food-image">
+                                        <img class="rounded-lg"   src="{{ recipe['recipe']['image'] }}" alt="">
+                                    </div>
+                            
+                                    
+                                </div>
+                            
+                                <div id="result-footer" class="mt-5">
+                                    <div id="source" class="text-left text-neutral-800">
+                                        <span class="font-medium">Recipe from <span class="text-green-500 font-bold">{{ recipe['recipe']['source'] }}</span></span>
+                                    </div>
+                            
+                                    <div id="row" class="flex flex-row space-x-2 mt-2">
+                                    <div id="button-group" class="">
+                                        <a href="{{ recipe['recipe']['url'] }}" target=”_blank”  class="transition-all hover:animate-pulse bg-green-600 text-white rounded-md py-2 px-2 uppercase font-bold">View Recipe</a>
+                                        <a class="transition-all bg-red-400 text-white rounded-md py-2 px-2 uppercase font-bold">Remove <i class="fa-solid fa-lock text-white"></i></a>
+                                    </div>
+                                </div>
+                            
+                                </div>
+                            </div>
+
+
+                                                        <div id="result-card" class="mt-2 p-2 bg-slate-50 mx-2 rounded-lg border-green-500 border-[1px] shadow-xl">
+                                <div id="title-bar" class="text-xl font-inter text-neutral-800 flex flex-row justify-between">
+                                        <h1 class="font-bold uppercase max-w-sm">{{ recipe['recipe']['label'] }}</h1>
+                                 
+                                    
+                                    </div>
+                            
+                                    <!-- Star Icon  --> 
+                            
+                            
+                            
+                                <div id="result-content" class="text-neutral-800 font-inter text-left list-none">
+                            
+                                    <h1 class="text-xl font-bold text-green-500">Ingredients</h1>
+                                    <hr class="my-2">
+                                    {% for i in recipe['recipe']['ingredientLines'] %}
+                                    <li>{{ i }}</li>
+                                    {% endfor %}
+                            
+                                                
+                                    <div id="food-image">
+                                        <img class="rounded-lg"   src="{{ recipe['recipe']['image'] }}" alt="">
+                                    </div>
+                            
+                                    
+                                </div>
+                            
+                                <div id="result-footer" class="mt-5">
+                                    <div id="source" class="text-left text-neutral-800">
+                                        <span class="font-medium">Recipe from <span class="text-green-500 font-bold">{{ recipe['recipe']['source'] }}</span></span>
+                                    </div>
+                            
+                                    <div id="row" class="flex flex-row space-x-2 mt-2">
+                                    <div id="button-group" class="">
+                                        <a href="{{ recipe['recipe']['url'] }}" target=”_blank”  class="transition-all hover:animate-pulse bg-green-600 text-white rounded-md py-2 px-2 uppercase font-bold">View Recipe</a>
+                                        <a class="transition-all bg-red-400 text-white rounded-md py-2 px-2 uppercase font-bold">Remove <i class="fa-solid fa-lock text-white"></i></a>
+                                    </div>
+                                </div>
+                            
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+        
+            </div>
+        </section>
+
+    </div>
+    </section> 
+
+
+</body>
+</html>

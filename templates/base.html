@@ -53,9 +53,9 @@
         <a href="/login" class="p-2 bg-green-600 text-white rounded-md text-lg hover:animate-pulse">Login</a>
     </div>
     <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
-        <span class="hamburger-top dark:bg-white"></span>
-        <span class="hamburger-middle dark:bg-white"></span>
-        <span class="hamburger-bottom dark:bg-white"></span>
+        <span class="hamburger-top"></span>
+        <span class="hamburger-middle"></span>
+        <span class="hamburger-bottom"></span>
       </button>
     </nav>
 </section>
@@ -181,7 +181,7 @@
     <div id="searching container" class="mt-10">
         <div class="md:grid grid-cols-2 gap-4 flex flex-col">
             <div id="left-side">
-                <form id="post-ingredients" action="{{url_for('gfg')}}" method="post">
+                <form id="post-ingredients" action="" method="post">
                  <textarea name="ingredients" id="ingredients" rows="4" class="block transition-all resize-none p-2.5 w-full text-sm text-neutral-800 focus:bg-slate-50 rounded-lg outline-none border-green-600 border-2" placeholder="Enter your ingredients here..." required></textarea>
                 
                  
@@ -245,6 +245,35 @@
 <!-- End Features Section -->
 
 <script src="../static/js/hamburger.js"></script>
+<script>
+$(function(){  // $(document).ready shorthand
+  $('.monster').fadeIn('slow');
+});
+
+$(document).ready(function() {
+    
+    /* Every time the window is scrolled ... */
+    $(window).scroll( function(){
+    
+        /* Check the location of each desired element */
+        $('.hideme').each( function(i){
+            
+            var bottom_of_object = $(this).position().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            
+            /* If the object is completely visible in the window, fade it it */
+            if( bottom_of_window > bottom_of_object ){
+                
+                $(this).animate({'opacity':'1'},1500);
+                    
+            }
+            
+        }); 
+    
+    });
+    
+});
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="../static/js/request.js"></script>
 </body>
